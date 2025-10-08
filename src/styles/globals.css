@@ -1,0 +1,64 @@
+/* src/styles/globals.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Color Palette - Dark Theme */
+  --primary-bg: #0f0f23;
+  --secondary-bg: #1a1a2e;
+  --accent-color: #00ff88;
+  --accent-secondary: #0099ff;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --card-bg: #16213e;
+  --gradient-primary: linear-gradient(135deg, #00ff88 0%, #0099ff 100%);
+  --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --font-code: 'Fira Code', monospace;
+  
+  /* Spacing */
+  --section-padding: 5rem 2rem;
+  --container-max-width: 1200px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
