@@ -41,7 +41,7 @@ const Footer = () => {
     {
       icon: <FaEnvelope />,
       name: 'Email',
-      url: 'mailto:shaurya@example.com',
+      url: 'mailto:shauryarajeyadav@gmail.com',
       color: '#EA4335'
     }
   ];
@@ -53,11 +53,11 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
-              <span className="logo-text">Shaurya Yadav</span>
+              <span className="logo-text">Shauryaraje Yadav</span>
             </div>
             <p className="footer-description">
-              A passionate web developer crafting digital experiences 
-              with modern technologies and innovative solutions.
+              A passionate web developer Crafting digital experiences with modern technologies, I build responsive,
+               performant web applications that solve real-world problems and create meaningful impact.
             </p>
             <div className="footer-social">
               {socialLinks.map((social, index) => (
@@ -104,7 +104,7 @@ const Footer = () => {
             <h4>Get In Touch</h4>
             <div className="contact-info">
               <p>📍 Pune, India</p>
-              <p>📧 shaurya@example.com</p>
+              <p>📧 shauryarajeyadav@gmail.com</p>
               <p>📱 +91 98765 43210</p>
             </div>
             <a href="#contact" className="contact-btn">

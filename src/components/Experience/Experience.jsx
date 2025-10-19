@@ -52,12 +52,12 @@ const Experience = () => {
       company: "Ecell, VIT Bhopal",
       logo: "EC",
       position: "Tech Team Member",
-      period: "Aug 2024 - Present",
+      period: "Jul 2025 – Present ",
       duration: "1 yr 3 mos",
       location: "Hybrid",
       type: "Part-time",
       description: [
-        "Contributing to technical projects and initiatives for the entrepreneurship cell",
+        "Contributing to technical projects and initiatives for the Entrepreneurship Cell",
         "Developing web solutions to support startup ecosystem and events",
         "Collaborating with cross-functional teams on innovation projects"
       ],

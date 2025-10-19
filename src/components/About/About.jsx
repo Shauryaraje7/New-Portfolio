@@ -75,8 +75,8 @@ const About = () => {
           <div className="about-stats">
             <div className="stat-card">
               <div className="stat-number">2+</div>
-              <div className="stat-label">Years Learning</div>
-              <div className="stat-desc">Dedicated to mastering web technologies</div>
+              <div className="stat-label"> Years of Learning</div>
+              <div className="stat-desc">Focused on mastering web technologies</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">5+</div>

@@ -78,7 +78,7 @@ const Hero = () => {
                 <FaTwitter />
                 <span className="social-tooltip">Twitter</span>
               </a>
-              <a href="mailto:shaurya@example.com" className="social-link" aria-label="Email">
+              <a href="mailto:shauryarajeyadav@gmail.com" className="social-link" aria-label="Email">
                 <FaEnvelope />
                 <span className="social-tooltip">Email</span>
               </a>
