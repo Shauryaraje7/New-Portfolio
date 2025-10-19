@@ -1,7 +1,7 @@
-// src/components/Hero/Hero.jsx
 import React from 'react';
 import './Hero.css';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaArrowDown } from 'react-icons/fa';
+import Profile from '../../assets/images/profile.jpeg';
 
 const Hero = () => {
   return (
@@ -86,20 +86,15 @@ const Hero = () => {
           </div>
           
           <div className="hero-visual">
-            <div className="profile-card">
+            <div className="profile-container">
               <div className="profile-image-wrapper">
-                <div className="profile-image">
-                  <div className="image-placeholder">
-                    <div className="placeholder-content">
-                      <span>Your Photo</span>
-                      <div className="placeholder-glow"></div>
-                    </div>
-                  </div>
-                  <div className="profile-glow"></div>
-                  <div className="profile-decoration profile-dec-1"></div>
-                  <div className="profile-decoration profile-dec-2"></div>
-                  <div className="profile-decoration profile-dec-3"></div>
-                </div>
+                <img 
+                  src={Profile} 
+                  alt="Shauryaraje Yadav" 
+                  className="profile-image"
+                />
+                <div className="profile-border-glow"></div>
+                <div className="profile-shine"></div>
               </div>
               
               <div className="floating-tech">

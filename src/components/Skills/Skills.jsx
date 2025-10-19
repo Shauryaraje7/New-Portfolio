@@ -1,4 +1,3 @@
-// src/components/Skills/Skills.jsx
 import React from 'react';
 import './Skills.css';
 import { FaReact, FaNodeJs, FaGitAlt, FaFigma } from 'react-icons/fa';
@@ -6,26 +5,26 @@ import { SiJavascript, SiTypescript, SiMongodb, SiExpress, SiNextdotjs, SiTailwi
 
 const Skills = () => {
   const technicalSkills = [
-    { name: 'React', level: 85, icon: <FaReact />, color: '#61DAFB' },
-    { name: 'JavaScript', level: 90, icon: <SiJavascript />, color: '#F7DF1E' },
-    { name: 'TypeScript', level: 75, icon: <SiTypescript />, color: '#3178C6' },
-    { name: 'Node.js', level: 80, icon: <FaNodeJs />, color: '#339933' },
-    { name: 'Next.js', level: 70, icon: <SiNextdotjs />, color: '#000000' },
-    { name: 'Express.js', level: 75, icon: <SiExpress />, color: '#000000' },
-    { name: 'MongoDB', level: 70, icon: <SiMongodb />, color: '#47A248' },
-    { name: 'Tailwind CSS', level: 85, icon: <SiTailwindcss />, color: '#06B6D4' },
-    { name: 'Git', level: 80, icon: <FaGitAlt />, color: '#F05032' },
-    { name: 'Figma', level: 65, icon: <FaFigma />, color: '#F24E1E' },
-    { name: 'Firebase', level: 60, icon: <SiFirebase />, color: '#FFCA28' }
+    { name: 'React', icon: <FaReact />, color: '#61DAFB' },
+    { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
+    { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
+    { name: 'Node.js', icon: <FaNodeJs />, color: '#339933' },
+    { name: 'Next.js', icon: <SiNextdotjs />, color: '#000000' },
+    { name: 'Express.js', icon: <SiExpress />, color: '#000000' },
+    { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248' },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4' },
+    { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
+    { name: 'Figma', icon: <FaFigma />, color: '#F24E1E' },
+    { name: 'Firebase', icon: <SiFirebase />, color: '#FFCA28' }
   ];
 
   const softSkills = [
-    { name: 'Problem Solving', level: 90 },
-    { name: 'Team Leadership', level: 85 },
-    { name: 'Communication', level: 88 },
-    { name: 'Project Management', level: 75 },
-    { name: 'Adaptability', level: 92 },
-    { name: 'Mentoring', level: 80 }
+    'Problem Solving',
+    'Team Leadership',
+    'Communication',
+    'Project Management',
+    'Adaptability',
+    'Mentoring'
   ];
 
   return (
@@ -43,25 +42,12 @@ const Skills = () => {
           <div className="technical-skills">
             <h3 className="skills-category-title">Technical Skills</h3>
             <div className="skills-grid">
-              {technicalSkills.map((skill, index) => (
-                <div key={skill.name} className="skill-card" style={{ '--skill-color': skill.color }}>
-                  <div className="skill-header">
-                    <div className="skill-icon" style={{ color: skill.color }}>
-                      {skill.icon}
-                    </div>
-                    <span className="skill-name">{skill.name}</span>
-                    <span className="skill-percentage">{skill.level}%</span>
+              {technicalSkills.map((skill) => (
+                <div key={skill.name} className="skill-card">
+                  <div className="skill-icon-wrapper" style={{ color: skill.color }}>
+                    {skill.icon}
                   </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ 
-                        width: `${skill.level}%`,
-                        backgroundColor: skill.color
-                      }}
-                      data-level={skill.level}
-                    ></div>
-                  </div>
+                  <span className="skill-name">{skill.name}</span>
                 </div>
               ))}
             </div>
@@ -71,17 +57,8 @@ const Skills = () => {
             <h3 className="skills-category-title">Professional Skills</h3>
             <div className="soft-skills-grid">
               {softSkills.map((skill) => (
-                <div key={skill.name} className="soft-skill-item">
-                  <div className="soft-skill-info">
-                    <span className="soft-skill-name">{skill.name}</span>
-                    <span className="soft-skill-percentage">{skill.level}%</span>
-                  </div>
-                  <div className="soft-skill-bar">
-                    <div 
-                      className="soft-skill-progress"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
+                <div key={skill} className="soft-skill-item">
+                  <span className="soft-skill-name">{skill}</span>
                 </div>
               ))}
             </div>
