@@ -4,6 +4,17 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaArrowDown } from 'react-
 import Profile from '../../assets/images/profile.jpeg';
 
 const Hero = () => {
+  const scrollToNextSection = () => {
+    // Get the next section (skills section)
+    const nextSection = document.getElementById('skills');
+    if (nextSection) {
+      nextSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section id="home" className="hero">
       <div className="hero-background">
@@ -66,17 +77,13 @@ const Hero = () => {
             </div>
 
             <div className="hero-social">
-              <a href="https://github.com" className="social-link" aria-label="GitHub">
+              <a href="https://github.com/Shauryaraje7" className="social-link" aria-label="GitHub">
                 <FaGithub />
                 <span className="social-tooltip">GitHub</span>
               </a>
-              <a href="https://linkedin.com" className="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/shauryaraje/" className="social-link" aria-label="LinkedIn">
                 <FaLinkedin />
                 <span className="social-tooltip">LinkedIn</span>
-              </a>
-              <a href="https://twitter.com" className="social-link" aria-label="Twitter">
-                <FaTwitter />
-                <span className="social-tooltip">Twitter</span>
               </a>
               <a href="mailto:shauryarajeyadav@gmail.com" className="social-link" aria-label="Email">
                 <FaEnvelope />
@@ -107,7 +114,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="scroll-indicator">
+        <div className="scroll-indicator" onClick={scrollToNextSection}>
           <div className="scroll-line"></div>
           <span>Scroll to explore</span>
           <FaArrowDown className="scroll-arrow" />

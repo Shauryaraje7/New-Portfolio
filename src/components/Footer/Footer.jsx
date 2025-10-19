@@ -23,21 +23,21 @@ const Footer = () => {
     {
       icon: <FaGithub />,
       name: 'GitHub',
-      url: 'https://github.com',
+      url: 'https://github.com/Shauryaraje7',
       color: '#333'
     },
     {
       icon: <FaLinkedin />,
       name: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/shauryaraje/',
       color: '#0077B5'
     },
-    {
-      icon: <FaTwitter />,
-      name: 'Twitter',
-      url: 'https://twitter.com',
-      color: '#1DA1F2'
-    },
+    // {
+    //   icon: <FaTwitter />,
+    //   name: 'Twitter',
+    //   url: 'https://twitter.com',
+    //   color: '#1DA1F2'
+    // },
     {
       icon: <FaEnvelope />,
       name: 'Email',

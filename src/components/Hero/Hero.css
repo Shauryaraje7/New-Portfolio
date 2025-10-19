@@ -700,3 +700,83 @@
     right: -8px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add this to your existing Hero.css */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  animation: fadeIn 1s ease-out 2s both;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  color: var(--accent-color);
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.scroll-indicator:hover .scroll-line {
+  background: var(--gradient-primary);
+  height: 45px;
+}
+
+.scroll-indicator:hover .scroll-arrow {
+  transform: translateY(8px);
+}
+
+.scroll-line {
+  width: 2px;
+  height: 50px;
+  background: var(--gradient-primary);
+  border-radius: 1rem;
+  animation: scrollBounce 2s infinite;
+  transition: all 0.3s ease;
+}
+
+.scroll-arrow {
+  animation: bounce 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+    height: 30px;
+  }
+  50% {
+    transform: translateY(10px);
+    height: 40px;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
