@@ -9,8 +9,8 @@
 
 A stunning, modern, and responsive portfolio website built with React and CSS3, showcasing my skills, projects, and professional journey.
 
-[![Live Demo](https://img.shields.io/badge/View_Live_Demo-00FF88?style=for-the-badge&logo=vercel&logoColor=white)](https://your-portfolio-link.vercel.app)
-[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername/portfolio)
+[![Live Demo](https://img.shields.io/badge/View_Live_Demo-00FF88?style=for-the-badge&logo=vercel&logoColor=white)](https://shaurya-portfolio-self.vercel.app/)
+[![GitHub](https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Shauryaraje7/New-Portfolio.git)
 
 </div>
 
