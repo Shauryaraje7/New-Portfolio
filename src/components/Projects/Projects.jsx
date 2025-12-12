@@ -5,6 +5,10 @@ import { FaGithub, FaExternalLinkAlt, FaCode, FaMobile, FaServer } from 'react-i
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const openModal = (project) => setSelectedProject(project);
+  const closeModal = () => setSelectedProject(null);
 
   const projects = [
     {
@@ -13,9 +17,9 @@ const Projects = () => {
       description: "A comprehensive platform for the Notion Community at VIT Bhopal, featuring event management, member engagement, and resource sharing capabilities.",
       image: "/api/placeholder/400/250",
       technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-      category: "fullstack",
-      githubLink: "https://github.com",
-      liveLink: "https://notion-community.example.com",
+      category: "frontend",
+      githubLink: "https://github.com/notion-vit/NotionCommunityVITB",
+      liveLink: "https://github.com/notion-vit/NotionCommunityVITB",
       features: ["User Authentication", "Event Management", "Real-time Chat", "Resource Library"],
       status: "completed"
     },
@@ -38,21 +42,28 @@ const Projects = () => {
       image: "/api/placeholder/400/250",
       technologies: ["Next.js", "TypeScript", "Firebase", "Chakra UI"],
       category: "fullstack",
-      githubLink: "https://github.com",
+      githubLink: "https://github.com/e-cell-vitbhopal/e-cell_website",
       liveLink: "https://ecell-vitb.example.com",
       features: ["Admin Dashboard", "Event Registration", "Startup Database", "Analytics"],
       status: "in-progress"
     },
     {
-      id: 4,
-      title: "Personal Portfolio",
-      description: "A modern, responsive portfolio website showcasing my projects, skills, and experience with dark theme and smooth animations.",
+      id: 5,
+      title: "Advanced Invoice Analysis Platform",
+      description:
+        "An AI-powered platform that extracts, standardizes, and analyzes invoice data from PDF or image files with high accuracy.",
       image: "/api/placeholder/400/250",
-      technologies: ["React", "CSS3", "JavaScript", "Framer Motion"],
-      category: "frontend",
-      githubLink: "https://github.com",
-      liveLink: "https://shaurya.example.com",
-      features: ["Dark Theme", "Responsive", "Smooth Animations", "Contact Form"],
+      technologies: ["Next.js", "AI/ML", "Python API", "OCR", "Tailwind CSS"],
+      category: "fullstack",
+      githubLink: "https://github.com/Shauryaraje7/Invoice-Scanner-",
+      liveLink: "https://invoice-analysis.example.com",
+      features: [
+        "Upload PDF or Images",
+        "AI-Powered Invoice Data Extraction",
+        "Standardized Output",
+        "Download CSV & View JSON Results",
+        "Drag & Drop File Support"
+      ],
       status: "completed"
     }
   ];
@@ -63,8 +74,8 @@ const Projects = () => {
     { key: 'fullstack', label: 'Full Stack', icon: <FaServer /> }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   return (
@@ -78,7 +89,7 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Project Filters */}
+        {/* Filters */}
         <div className="project-filters">
           {filters.map(filter => (
             <button
@@ -100,43 +111,33 @@ const Projects = () => {
                 <div className="image-placeholder">
                   <span>Project Image</span>
                 </div>
-                <div className="project-overlay">
-                  <div className="project-links">
-                    <a href={project.liveLink} className="project-link" target="_blank" rel="noopener noreferrer">
-                      <FaExternalLinkAlt />
-                      Live Demo
-                    </a>
-                    <a href={project.githubLink} className="project-link" target="_blank" rel="noopener noreferrer">
-                      <FaGithub />
-                      Code
-                    </a>
-                  </div>
-                </div>
+
                 {project.status === 'in-progress' && (
-                  <div className="project-badge ongoing">
-                    In Progress
-                  </div>
+                  <div className="project-badge ongoing">In Progress</div>
                 )}
               </div>
 
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                
-                <div className="project-features">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    {project.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
+
+                <p className="project-description">
+                  {project.description.slice(0, 100)}...
+                </p>
 
                 <div className="project-technologies">
-                  {project.technologies.map(tech => (
+                  {project.technologies.slice(0, 3).map((tech) => (
                     <span key={tech} className="tech-tag">{tech}</span>
                   ))}
+                  {project.technologies.length > 3 && (
+                    <span className="tech-tag more-tech">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
                 </div>
+
+                <button className="view-details-btn" onClick={() => openModal(project)}>
+                  View Details
+                </button>
               </div>
             </div>
           ))}
@@ -152,6 +153,37 @@ const Projects = () => {
           </a>
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedProject && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>×</button>
+
+            <h2>{selectedProject.title}</h2>
+            <p>{selectedProject.description}</p>
+
+            <h4>Key Features</h4>
+            <ul>
+              {selectedProject.features.map((f, i) => (
+                <li key={i}>{f}</li>
+              ))}
+            </ul>
+
+            <h4>Technologies</h4>
+            <div className="modal-tech">
+              {selectedProject.technologies.map((tech, i) => (
+                <span key={i} className="tech-tag">{tech}</span>
+              ))}
+            </div>
+
+            <div className="modal-links">
+              {/* <a href={selectedProject.liveLink} target="_blank" className="btn">Live Demo</a> */}
+              <a href={selectedProject.githubLink} target="_blank" className="btn">Code</a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
