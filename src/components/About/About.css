@@ -144,9 +144,11 @@
   }
   
   .about-image {
-    width: 100%;
+    width: 100% !important;
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 0 auto;
   }
 
   .image-wrapper {
