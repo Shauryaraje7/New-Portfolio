@@ -19,8 +19,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Hi, I'm <span className="text-gradient">Shauryaraje Yadav</span><br />
-            <span style={{ fontSize: '1.4rem', opacity: 0.9 }}>Mobile Application Developer & Full Stack Web Developer</span>
+            Hi, I'm <span className="text-gradient">Shauryaraje Yadav</span> 
+            <span className="hero-title-role">Mobile Application Developer & Full Stack Web Developer</span>
           </motion.h1>
 
           <motion.p 
