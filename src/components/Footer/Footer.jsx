@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-flex">
           <div className="footer-left">
             <span className="footer-logo">Shauryaraje <span className="text-gradient">Yadav</span></span>
-            <p className="footer-tagline">Founder & Full Stack Developer</p>
+            <p className="footer-tagline">Founder & Developer</p>
           </div>
           
           <div className="footer-right">

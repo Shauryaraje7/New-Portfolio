@@ -1,7 +1,7 @@
 // src/components/Contact/Contact.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiLinkedin, FiGithub, FiSend } from 'react-icons/fi';
+import { FiMail, FiLinkedin, FiGithub, FiSend, FiMapPin, FiSmartphone } from 'react-icons/fi';
 import './Contact.css';
 
 const Contact = () => {
@@ -31,11 +31,22 @@ const Contact = () => {
                   <p>shauryarajeyadav@gmail.com</p>
                 </div>
               </div>
-            </div>
 
-            <div className="contact-details-list" style={{ marginTop: '1.5rem', color: 'var(--text-muted)' }}>
-              <p>📍 Pune, India</p>
-              <p>📱 +91 98765 43210</p>
+              <div className="contact-method">
+                <div className="method-icon"><FiMapPin /></div>
+                <div>
+                  <h4>Location</h4>
+                  <p>Pune, India</p>
+                </div>
+              </div>
+              
+              <div className="contact-method">
+                <div className="method-icon"><FiSmartphone /></div>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+91 98765 43210</p>
+                </div>
+              </div>
             </div>
 
             <div className="contact-social" style={{ marginTop: '2rem' }}>

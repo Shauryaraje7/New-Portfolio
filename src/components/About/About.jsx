@@ -16,10 +16,11 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="image-wrapper glass-card">
-              <div className="experience-badge">
-                <span className="years">4th</span>
-                <span className="label">Year CS Student</span>
-              </div>
+              <img 
+                src="https://via.placeholder.com/400x500" 
+                alt="Shauryaraje Yadav" 
+                className="about-photo" 
+              />
             </div>
           </motion.div>
 

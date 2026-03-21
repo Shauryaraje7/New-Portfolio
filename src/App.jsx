@@ -4,12 +4,11 @@ import './styles/globals.css';
 import './App.css';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
-import SocialProof from './components/SocialProof/SocialProof';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
-import Liomonk from './components/Liomonk/Liomonk';
+import Projects from './components/Projects/Projects';
 import Services from './components/Services/Services';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
@@ -30,12 +29,10 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <SocialProof />
         <About />
         <Skills />
         <Experience />
         <Projects />
-        <Liomonk />
         <Services />
         <Contact />
       </main>

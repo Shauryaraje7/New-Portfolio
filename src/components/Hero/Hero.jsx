@@ -20,8 +20,7 @@ const Hero = () => {
             transition={{ delay: 0.2 }}
           >
             Hi, I'm <span className="text-gradient">Shauryaraje Yadav</span><br />
-            Full Stack Developer | Mobile App Developer<br />
-            <span className="text-secondary" style={{ fontSize: '1.2rem', opacity: 0.8 }}>Specializing in Scalable Agricultural & HealthcarePlus Solutions</span>
+            <span style={{ fontSize: '1.4rem', opacity: 0.9 }}>Mobile Application Developer & Full Stack Web Developer</span>
           </motion.h1>
 
           <motion.p 
