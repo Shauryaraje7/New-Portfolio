@@ -1,6 +1,7 @@
 // src/components/About/About.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FiMapPin, FiMail } from 'react-icons/fi';
 import './About.css';
 
 const About = () => {
@@ -31,6 +32,13 @@ const About = () => {
             <h2 className="section-title" style={{ textAlign: 'left' }}>
               Academic Growth & <span className="text-gradient">Real-World Experience</span>
             </h2>
+            <style>{`
+              .detail-icon {
+                color: var(--primary);
+                font-size: 1.2rem;
+                flex-shrink: 0;
+              }
+            `}</style>
             <p className="about-text">
               I am a 4th-year Computer Science student at VIT Bhopal with a passion for building 
               robust applications that solve actual problems. My journey is defined by a 
@@ -57,10 +65,12 @@ const About = () => {
 
             <div className="about-details">
               <div className="detail-item">
+                <FiMapPin className="detail-icon" />
                 <span className="detail-label">Location:</span>
                 <span className="detail-value">Pune, India</span>
               </div>
               <div className="detail-item">
+                <FiMail className="detail-icon" />
                 <span className="detail-label">Email:</span>
                 <span className="detail-value">shauryarajeyadav@gmail.com</span>
               </div>
