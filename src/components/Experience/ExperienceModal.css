@@ -25,6 +25,12 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: 0 40px 100px -20px rgba(15, 23, 42, 0.2);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.exp-modal-content::-webkit-scrollbar {
+  display: none;
 }
 
 .exp-modal-close {

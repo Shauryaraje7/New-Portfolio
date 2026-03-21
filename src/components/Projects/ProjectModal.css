@@ -25,9 +25,16 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: 0 40px 100px -20px rgba(15, 23, 42, 0.2);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none;
 }
 
 .modal-close {
+  padding: 0;
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
