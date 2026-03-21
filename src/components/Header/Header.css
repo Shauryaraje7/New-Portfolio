@@ -109,11 +109,21 @@
 }
 
 @media (max-width: 968px) {
+  .nav-container {
+    position: relative;
+    justify-content: center; /* Center the logo on mobile */
+  }
+  
   .nav-desktop {
     display: none;
   }
   
   .mobile-toggle {
     display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
   }
 }
