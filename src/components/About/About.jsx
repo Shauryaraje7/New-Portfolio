@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiMail } from 'react-icons/fi';
-import profileImg from '../../assets/images/profile.jpeg';
+import profileImg from '../../assets/edited-photo (7).png';
 import './About.css';
 
 const About = () => {
