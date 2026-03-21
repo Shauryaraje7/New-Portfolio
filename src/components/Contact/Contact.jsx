@@ -1,202 +1,75 @@
 // src/components/Contact/Contact.jsx
-import React, { useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FiMail, FiLinkedin, FiGithub, FiSend } from 'react-icons/fi';
 import './Contact.css';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaPaperPlane } from 'react-icons/fa';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert('Thank you for your message! I\'ll get back to you soon.');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 2000);
-  };
-
-  const contactInfo = [
-    {
-      icon: <FaEnvelope />,
-      label: 'Email',
-      value: 'shauryarajeyadav@gmail.com',
-      link: 'mailto:shauryarajeyadav@gmail.com'
-    },
-    {
-      icon: <FaPhone />,
-      label: 'Phone',
-      value: '+91 98765 43210',
-      link: 'tel:+919876543210'
-    },
-    {
-      icon: <FaMapMarkerAlt />,
-      label: 'Location',
-      value: 'Pune, India',
-      link: 'https://maps.google.com/?q=Pune,India'
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: <FaLinkedin />,
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/shauryaraje/',
-      color: '#0077B5'
-    },
-    {
-      icon: <FaGithub />,
-      name: 'GitHub',
-      url: 'https://github.com/Shauryaraje7',
-      color: '#333'
-    },
-    // {
-    //   icon: <FaTwitter />,
-    //   name: 'Twitter',
-    //   url: 'https://twitter.com',
-    //   color: '#1DA1F2'
-    // }
-  ];
-
   return (
-    <section id="contact" className="contact">
+    <section className="contact section" id="contact">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Get In Touch</h2>
-          <div className="section-divider"></div>
-          <p className="section-subtitle">
-            Ready to bring your ideas to life? Let's start a conversation.
-          </p>
-        </div>
-
-        <div className="contact-content">
-          <div className="contact-info">
-            <h3>Let's Connect</h3>
-            <p>
-              I'm always open to discussing new opportunities, creative projects, 
-              or just having a friendly chat about technology and development.
+        <div className="contact-grid">
+          <motion.div 
+            className="contact-text"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="section-title" style={{ textAlign: 'left' }}>
+              Get In <span className="text-gradient">Touch</span>
+            </h2>
+            <p className="contact-lead">
+              I am currently open to internships and full-time opportunities. 
+              If you have a project or a role that aligns with my skills, feel free to reach out.
             </p>
-
-            <div className="contact-details">
-              {contactInfo.map((item, index) => (
-                <a 
-                  key={index} 
-                  href={item.link} 
-                  className="contact-item"
-                  target={item.link.startsWith('http') ? '_blank' : '_self'}
-                  rel="noopener noreferrer"
-                >
-                  <div className="contact-icon">
-                    {item.icon}
-                  </div>
-                  <div className="contact-text">
-                    <span className="contact-label">{item.label}</span>
-                    <span className="contact-value">{item.value}</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            <div className="social-links">
-              <h4>Follow Me</h4>
-              <div className="social-icons">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    className="social-icon"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ '--social-color': social.color }}
-                  >
-                    {social.icon}
-                    <span className="social-tooltip">{social.name}</span>
-                  </a>
-                ))}
+            
+            <div className="contact-methods">
+              <div className="contact-method">
+                <div className="method-icon"><FiMail /></div>
+                <div>
+                  <h4>Email</h4>
+                  <p>shauryarajeyadav@gmail.com</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="contact-form-container">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="contact-details-list" style={{ marginTop: '1.5rem', color: 'var(--text-muted)' }}>
+              <p>📍 Pune, India</p>
+              <p>📱 +91 98765 43210</p>
+            </div>
+
+            <div className="contact-social" style={{ marginTop: '2rem' }}>
+              <a href="https://linkedin.com/in/shauryaraje" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FiLinkedin />
+              </a>
+              <a href="https://github.com/Shauryaraje7" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FiGithub />
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="contact-form-card glass-card"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <form className="contact-form">
               <div className="form-group">
-                <label htmlFor="name">Full Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter your full name"
-                />
+                <input type="text" placeholder="Name" required />
               </div>
-
               <div className="form-group">
-                <label htmlFor="email">Email Address</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter your email address"
-                />
+                <input type="email" placeholder="Email" required />
               </div>
-
               <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  placeholder="What's this about?"
-                />
+                <textarea placeholder="Message" rows="5" required></textarea>
               </div>
-
-              <div className="form-group">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="6"
-                  placeholder="Tell me about your project or just say hello..."
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit" 
-                className="submit-btn"
-                disabled={isSubmitting}
-              >
-                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                <FaPaperPlane className="send-icon" />
+              <button type="submit" className="btn btn-primary w-full">
+                <span>Send Message</span>
+                <FiSend />
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

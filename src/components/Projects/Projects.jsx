@@ -1,189 +1,119 @@
 // src/components/Projects/Projects.jsx
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FiGithub, FiExternalLink, FiCpu, FiGlobe, FiSmartphone } from 'react-icons/fi';
+import ProjectModal from './ProjectModal';
 import './Projects.css';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaMobile, FaServer } from 'react-icons/fa';
+
+const projectData = [
+  {
+    title: "HealthcarePlus",
+    description: "A state-of-the-art medical ecosystem integrating AI-driven diagnostics, patient management, and a unique wellness rewards system.",
+    tech: ["React 19", "Expo", "FastAPI", "PostgreSQL", "Claude 3.5"],
+    details: "HealthcarePlus bridges the gap between patients, providers, and wellness partners. It leverages AI for OCR-based onboarding and a RAG-based Health Coach for context-aware medical advice.",
+    howItWorks: "Features a microservice-lite architecture with a Node.js/Express main logic backend and a specialized FastAPI AI service using Claude 3.5 Sonnet Vision via AWS Bedrock. Includes an automated points ecosystem for health gamification.",
+    users: ["Patients (AI Coach & Wallet)", "Doctors (SOAP Notes)", "NGOs (Community Support)", "Insurance & Wellness Partners"],
+    icon: <FiSmartphone />
+  },
+  {
+    title: "AgroConnect",
+    description: "A comprehensive Agriculture Management System for tracking crop lifecycles, and ensuring compliance through automated audits.",
+    tech: ["React Native", "Expo Router", "FastAPI", "PostgreSQL", "AWS S3"],
+    details: "A multi-platform solution for farm operations, crop lifecycle tracking, and a service marketplace. It features a robust compliance engine for standardized agricultural auditing.",
+    howItWorks: "Built with a high-performance FastAPI backend and an Expo-based cross-platform frontend. Includes a dynamic Audit Engine with weighted scoring and automated PDF report generation for certifications.",
+    users: ["Farmers (Org Admins)", "FSPs (Service Providers)", "Field Supervisors", "System Admins"],
+    icon: <FiGlobe />
+  },
+  {
+    title: "AI-Powered Invoice SaaS",
+    description: "Automated billing platform featuring AI-driven data extraction from invoices and a comprehensive financial reporting dashboard.",
+    tech: ["React", "Node.js", "PostgreSQL", "OpenAI API"],
+    details: "A cloud-based SaaS that streamlines accounts payable workflows. It leverages LLMs to process unstructured invoice data into structured financial records.",
+    howItWorks: "Integrates OpenAI's vision and text models to parse uploaded PDF/image invoices. Extracted data is validated against user rules and exported to high-performance PostgreSQL tables for analytics.",
+    users: ["Small Business Owners", "Accountants", "Financial Analysts"],
+    icon: <FiCpu />
+  },
+  {
+    title: "Notion Community Hub",
+    description: "Engagement platform for a 5000+ member community, facilitating event management, resource sharing, and member interactions.",
+    tech: ["Next.js", "Typescript", "MongoDB", "Firebase"],
+    details: "A custom community management platform for student developers and tech enthusiasts. It centralizes events, certifications, and resources.",
+    howItWorks: "Built with Next.js for SSR SEO benefits. Uses Firebase for real-time chat and notifications, with MongoDB handling the complex relational data of community hierarchies.",
+    users: ["Community Members", "Notion Tech Leads", "Event Organizers"],
+    icon: <FiGlobe />
+  },
+  {
+    title: "SmartFlows Corporate Site",
+    description: "High-performance corporate web presence with optimized asset delivery and integrated client management tools.",
+    tech: ["Next.js", "Tailwind CSS", "Vercel"],
+    details: "A premium corporate website designed for high conversion and technical credibility. Features custom micro-animations and a bespoke CMS.",
+    howItWorks: "Leverages Next.js static generation (SSG) for sub-second load times. Includes a lead generation pipeline that connects directly to a custom-built CRM backend.",
+    users: ["Potential Corporate Clients", "SmartFlows Sales Team"],
+    icon: <FiGlobe />
+  }
+];
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = (project) => setSelectedProject(project);
-  const closeModal = () => setSelectedProject(null);
+  const openModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
-  const projects = [
-    {
-      id: 1,
-      title: "Notion Community Platform",
-      description: "A comprehensive platform for the Notion Community at VIT Bhopal, featuring event management, member engagement, and resource sharing capabilities.",
-      image: "/api/placeholder/400/250",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-      category: "frontend",
-      githubLink: "https://github.com/notion-vit/NotionCommunityVITB",
-      liveLink: "https://github.com/notion-vit/NotionCommunityVITB",
-      features: ["User Authentication", "Event Management", "Real-time Chat", "Resource Library"],
-      status: "completed"
-    },
-    {
-      id: 2,
-      title: "SmartFlows Website",
-      description: "Official company website for SmartFlows, featuring modern design, responsive layout, and optimized performance for lead generation.",
-      image: "/api/placeholder/400/250",
-      technologies: ["React", "JavaScript", "CSS3", "Git", "Netlify"],
-      category: "frontend",
-      githubLink: "https://github.com",
-      liveLink: "https://smartflows.in",
-      features: ["Responsive Design", "Performance Optimized", "SEO Friendly", "Contact Forms"],
-      status: "completed"
-    },
-    {
-      id: 3,
-      title: "E-Cell Portal",
-      description: "A portal for the Entrepreneurship Cell at VIT Bhopal to manage events, startups, and community interactions with admin dashboard.",
-      image: "/api/placeholder/400/250",
-      technologies: ["Next.js", "TypeScript", "Firebase", "Chakra UI"],
-      category: "fullstack",
-      githubLink: "https://github.com/e-cell-vitbhopal/e-cell_website",
-      liveLink: "https://ecell-vitb.example.com",
-      features: ["Admin Dashboard", "Event Registration", "Startup Database", "Analytics"],
-      status: "in-progress"
-    },
-    {
-      id: 5,
-      title: "Advanced Invoice Analysis Platform",
-      description:
-        "An AI-powered platform that extracts, standardizes, and analyzes invoice data from PDF or image files with high accuracy.",
-      image: "/api/placeholder/400/250",
-      technologies: ["Next.js", "AI/ML", "Python API", "OCR", "Tailwind CSS"],
-      category: "fullstack",
-      githubLink: "https://github.com/Shauryaraje7/Invoice-Scanner-",
-      liveLink: "https://invoice-analysis.example.com",
-      features: [
-        "Upload PDF or Images",
-        "AI-Powered Invoice Data Extraction",
-        "Standardized Output",
-        "Download CSV & View JSON Results",
-        "Drag & Drop File Support"
-      ],
-      status: "completed"
-    }
-  ];
-
-  const filters = [
-    { key: 'all', label: 'All Projects', icon: <FaCode /> },
-    { key: 'frontend', label: 'Frontend', icon: <FaMobile /> },
-    { key: 'fullstack', label: 'Full Stack', icon: <FaServer /> }
-  ];
-
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(project => project.category === activeFilter);
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
-    <section id="projects" className="projects">
+    <section className="projects section" id="projects">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Featured Projects</h2>
-          <div className="section-divider"></div>
-          <p className="section-subtitle">
-            A collection of projects that showcase my skills and passion for development
-          </p>
-        </div>
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="section-title">Featured <span className="text-gradient">Projects</span></h2>
+        </motion.div>
 
-        {/* Filters */}
-        <div className="project-filters">
-          {filters.map(filter => (
-            <button
-              key={filter.key}
-              className={`filter-btn ${activeFilter === filter.key ? 'active' : ''}`}
-              onClick={() => setActiveFilter(filter.key)}
-            >
-              <span className="filter-icon">{filter.icon}</span>
-              {filter.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
         <div className="projects-grid">
-          {filteredProjects.map(project => (
-            <div key={project.id} className="project-card">
-              <div className="project-image">
-                <div className="image-placeholder">
-                  <span>Project Image</span>
-                </div>
-
-                {project.status === 'in-progress' && (
-                  <div className="project-badge ongoing">In Progress</div>
-                )}
+          {projectData.map((project, index) => (
+            <motion.div 
+              key={index}
+              className="project-card glass-card"
+              onClick={() => openModal(project)}
+              style={{ cursor: 'pointer' }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+            >
+              <div className="project-header">
+                <div className="project-icon">{project.icon}</div>
               </div>
-
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-
-                <p className="project-description">
-                  {project.description.slice(0, 100)}...
-                </p>
-
-                <div className="project-technologies">
-                  {project.technologies.slice(0, 3).map((tech) => (
-                    <span key={tech} className="tech-tag">{tech}</span>
+              
+              <div className="project-body">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="project-tech">
+                  {project.tech.map((tech, i) => (
+                    <span key={i} className="tech-chip">{tech}</span>
                   ))}
-                  {project.technologies.length > 3 && (
-                    <span className="tech-tag more-tech">
-                      +{project.technologies.length - 3}
-                    </span>
-                  )}
                 </div>
-
-                <button className="view-details-btn" onClick={() => openModal(project)}>
-                  View Details
-                </button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="projects-cta">
-          <h3>Want to see more?</h3>
-          <p>Check out my GitHub for more projects and contributions</p>
-          <a href="https://github.com" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            <FaGithub />
-            View GitHub
-          </a>
         </div>
       </div>
 
-      {/* Modal */}
-      {selectedProject && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>×</button>
-
-            <h2>{selectedProject.title}</h2>
-            <p>{selectedProject.description}</p>
-
-            <h4>Key Features</h4>
-            <ul>
-              {selectedProject.features.map((f, i) => (
-                <li key={i}>{f}</li>
-              ))}
-            </ul>
-
-            <h4>Technologies</h4>
-            <div className="modal-tech">
-              {selectedProject.technologies.map((tech, i) => (
-                <span key={i} className="tech-tag">{tech}</span>
-              ))}
-            </div>
-
-            <div className="modal-links">
-              {/* <a href={selectedProject.liveLink} target="_blank" className="btn">Live Demo</a> */}
-              <a href={selectedProject.githubLink} target="_blank" className="btn">Code</a>
-            </div>
-          </div>
-        </div>
-      )}
+      <ProjectModal 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
   );
 };

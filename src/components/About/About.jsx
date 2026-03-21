@@ -1,99 +1,71 @@
 // src/components/About/About.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
 import './About.css';
 
 const About = () => {
   return (
-    <section id="about" className="about">
+    <section className="about section" id="about">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">About Me</h2>
-          <div className="section-divider"></div>
-          <p className="section-subtitle">
-            Get to know the person behind the code
-          </p>
-        </div>
-
-        <div className="about-content">
-          <div className="about-text">
-            <div className="about-intro">
-              <h3>Building Digital Solutions That Matter</h3>
-              <p>
-                I'm a passionate web developer from Pune with a love for creating 
-                innovative digital experiences. My journey in tech started with curiosity 
-                and has evolved into a career focused on building solutions that make a difference.
-              </p>
+        <div className="about-grid">
+          <motion.div 
+            className="about-image"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <div className="image-wrapper glass-card">
+              <div className="experience-badge">
+                <span className="years">4th</span>
+                <span className="label">Year CS Student</span>
+              </div>
             </div>
+          </motion.div>
 
-            <div className="about-philosophy">
-              <h4>My Technical Philosophy</h4>
-              <p>
-                I believe in writing clean, maintainable code that not only works 
-                but also tells a story. Every project is an opportunity to learn, 
-                innovate, and push boundaries while keeping user experience at the forefront.
-              </p>
-            </div>
+          <motion.div 
+            className="about-content"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="section-title" style={{ textAlign: 'left' }}>
+              Academic Growth & <span className="text-gradient">Real-World Experience</span>
+            </h2>
+            <p className="about-text">
+              I am a 4th-year Computer Science student at VIT Bhopal with a passion for building 
+              robust applications that solve actual problems. My journey is defined by a 
+              combination of rigorous academic learning and hands-on product engineering, 
+              specifically in full-stack development and AI model integration.
+            </p>
+            <p className="about-text">
+              As the Founder of Liomonk, I have transitioned from learning concepts to 
+              delivering end-to-end solutions. My experience spans building complex 
+              Audit & Compliance systems for agriculture and the comprehensive HealthcarePlus ecosystem, 
+              proving my ability to handle large-scale architectures across mobile and web platforms.
+            </p>
 
-            <div className="about-approach">
-              <h4>My Approach</h4>
-              <div className="approach-points">
-                <div className="approach-point">
-                  <span className="point-number">01</span>
-                  <div>
-                    <h5>User-Centric Design</h5>
-                    <p>Creating interfaces that are intuitive and enjoyable to use</p>
-                  </div>
-                </div>
-                <div className="approach-point">
-                  <span className="point-number">02</span>
-                  <div>
-                    <h5>Performance First</h5>
-                    <p>Optimizing for speed and efficiency in every implementation</p>
-                  </div>
-                </div>
-                <div className="approach-point">
-                  <span className="point-number">03</span>
-                  <div>
-                    <h5>Continuous Learning</h5>
-                    <p>Staying updated with the latest technologies and best practices</p>
-                  </div>
-                </div>
+            <div className="about-stats">
+              <div className="stat-card glass-card">
+                <h4>Education</h4>
+                <p>VIT Bhopal (B.Tech CS)</p>
+              </div>
+              <div className="stat-card glass-card">
+                <h4>Focus</h4>
+                <p>Full Stack & Mobile Dev</p>
               </div>
             </div>
 
-            <div className="about-passion">
-              <h4>Beyond Coding</h4>
-              <p>
-                When I'm not coding, you'll find me exploring new technologies, 
-                contributing to open-source projects, or sharing knowledge with 
-                the developer community. I'm passionate about mentoring and 
-                helping others grow in their tech journey.
-              </p>
+            <div className="about-details">
+              <div className="detail-item">
+                <span className="detail-label">Location:</span>
+                <span className="detail-value">Pune, India</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Email:</span>
+                <span className="detail-value">shauryarajeyadav@gmail.com</span>
+              </div>
             </div>
-          </div>
-
-          <div className="about-stats">
-            <div className="stat-card">
-              <div className="stat-number">2+</div>
-              <div className="stat-label"> Years of Learning</div>
-              <div className="stat-desc">Focused on mastering web technologies</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">5+</div>
-              <div className="stat-label">Projects Built</div>
-              <div className="stat-desc">From concept to deployment</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">3</div>
-              <div className="stat-label">Tech Roles</div>
-              <div className="stat-desc">Diverse experience across teams</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Passionate</div>
-              <div className="stat-desc">About creating amazing digital experiences</div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
