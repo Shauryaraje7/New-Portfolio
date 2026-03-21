@@ -5,12 +5,16 @@
   gap: 4rem;
   align-items: center;
 }
-
+.about-image{
+  width: 80%;
+  
+}
 .about-image-container {
   position: relative;
 }
 
 .image-wrapper {
+  max-width: 85%;
   aspect-ratio: 4/5;
   height: auto;
   border-radius: var(--radius-lg);
@@ -137,5 +141,16 @@
   .about-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+  
+  .about-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-wrapper {
+    margin: 0 auto;
+    max-width: 90%;
   }
 }
