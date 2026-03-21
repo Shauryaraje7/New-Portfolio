@@ -12,8 +12,8 @@
 
 @media (max-width: 640px) {
   .skills-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .skill-category {
