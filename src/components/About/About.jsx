@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiMail } from 'react-icons/fi';
+import profileImg from '../../assets/images/profile.jpeg';
 import './About.css';
 
 const About = () => {
@@ -17,7 +18,7 @@ const About = () => {
           >
             <div className="image-wrapper glass-card">
               <img 
-                src="https://via.placeholder.com/400x500" 
+                src={profileImg} 
                 alt="Shauryaraje Yadav" 
                 className="about-photo" 
               />
