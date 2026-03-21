@@ -21,7 +21,7 @@ function App() {
       <div className="global-particles">
         <Particles
           particleCount={150}
-          particleColors={['#9d50bb', '#6e48aa', '#ffffff']}
+          particleColors={['#2563EB', '#1E40AF', '#64748B']}
           moveParticlesOnHover={true}
           className="website-particles"
         />

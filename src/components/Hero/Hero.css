@@ -76,7 +76,7 @@
 
 .role-sep {
   color: var(--text-dim);
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .hero-badge {
@@ -92,7 +92,9 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-main);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.1);
 }
 
 .badge-dot {
