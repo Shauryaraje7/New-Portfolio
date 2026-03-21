@@ -10,7 +10,7 @@
 }
 
 .header.scrolled {
-  padding: 1rem 0;
+  padding: 2rem 0;
   background: var(--bg-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
